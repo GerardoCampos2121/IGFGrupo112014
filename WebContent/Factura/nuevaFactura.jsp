@@ -8,7 +8,7 @@
 	<center>
 		<div id="DatosFactura">
 			<h3>Ingreso de una nueva factura</h3><br>
-			<form action="facturaIngresada.jsp" method="post">
+			<form action="Factura/facturaIngresada.jsp" method="post">
 				Id del cliente : <input type="text" name="idCliente" id="idCliente"/><br>
 				Id del tipo de venta: <input type="text" name="idTipoVta" id="idTipoVta"/><br>
 				id factura: <input type="text" name="idFactura" id="idFactura"/><br>
