@@ -9,9 +9,16 @@
 <%
 String id  = request.getParameter("id");
 String nombre = request.getParameter("nombre");
-Date fecha =ManejoFechas.ParseFecha(request.getParameter("fecha"));
+
+String fechacapturada = request.getParameter("fecha");
+SimpleDateFormat formatoDelTexto = new SimpleDateFormat("yyyy-MM-dd");
+Date fecha = null; //iniciamos fecha
+fecha = formatoDelTexto.parse(fechacapturada);  
+
+
 BigDecimal precio = new BigDecimal(request.getParameter("precio"));
 String idpro = request.getParameter("idpro");
+
 CtrlProducto producto = new CtrlProducto();
 CtrlProveedor prov = new CtrlProveedor();
 
