@@ -28,9 +28,48 @@
 	
 	try{
 		
+		int ban = Integer.parseInt(request.getParameter("ban"));
+		
+		String archivo="";
+		
+		if(ban==1){
+			archivo = "Reportes/ReporteBodegas.jasper";
+		}
+		
+		if(ban==2)
+		{
+			archivo = "Reportes/ReporteClientesTipoCliente.jasper";
+		}
+		
+		if(ban==3)
+		{
+			archivo = "Reportes/ReporteClientesTodos.jasper";
+		}
+		
+		if(ban==4)
+		{
+			archivo = "Reportes/ReporteProducosPorBodega.jasper";
+		}	
+		
+		if(ban==5)
+		{
+			archivo = "Reportes/ReporteProductos.jasper";
+		}
 		
 		
-		File reportFile = new File(application.getRealPath("Reportes/ReporteBodegas.jasper"));
+		if(ban==6)
+		{
+			archivo = "Reportes/ReporteProveedores.jasper";
+		}
+		
+		if(ban==7)
+		{
+			archivo = "Reportes/ReporteTiposVenta.jasper";
+		}
+		
+		
+		
+		File reportFile = new File(application.getRealPath(archivo));		
 
 	    Map parameters = new HashMap();
 
