@@ -1,0 +1,57 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<!-- Se cargan las librerias de Boostrap Twitter -->
+	<!-- <link href="bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">   -->
+  <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  <link rel="stylesheet" type="text/css" href="bootstrap/css/starter-template.css"> 
+	<!-- <script src="bootstrap/js/bootstrap.js"></script>-->
+  <script src="bootstrap/js/jquery.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script>
+  <script src="bootstrap/js/bootstrap.min.js"></script> 
+ 
+<title>Insertar datos de Producto</title>
+</head>
+<body>
+<div class="navbar navbar-fixed-center">
+    <div class="navbar-inner">
+       <div class="container">
+         <center>
+           <form action="crearproducto.jsp" method="post">
+             <br><br><h1>Insertar Datos de Producto</h1><br><br>
+                <table class="table table-bordered">
+                  <tr>
+                    <td>Id de producto</td>
+                  <td><input  type="text" name="id" placeholder="B###"></td>
+                   </tr>
+                  <tr>
+                   <td>Nombre de Producto</td>
+           <td><input class="input-xlarge" type="text" name="nombre"></td> 
+                 </tr>
+                 <tr>
+                   <td>Fecha de Ingreso del Producto</td>
+           <td><input type="text" name="fecha" placeholder="aaaa/mm/dd"></td> 
+                 </tr>
+                 <tr>
+                   <td>Precio de Producto</td>
+           <td><input class="input-mini" type="text" name="precio" placeholder="$ 0.00"></td> 
+                 </tr>
+                 <tr>
+                   <td>Id de proveedor</td>
+           <td><input type="text" name="idproveedor" placeholder="A###"></td> 
+                 </tr>
+                 <tr>
+                 
+ <td><br><center><center><button class="btn btn-large btn-primary" type="submit" value="Crear" name="Crear">Crear</button>
+ <button class="btn btn-large btn-primary" type="reset" value="Cancelar" name="Cancelar">Cancelar</button><center></td><center></center>
+				</tr>
+           </table>
+         </div>
+            </form>
+            </center>
+        </div>
+    </div>
+    
+</body>
+</html>
