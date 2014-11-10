@@ -1,5 +1,7 @@
 package sv.edu.ues.igf115.grupo11.datos;
 
+import java.util.List;
+
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -61,12 +63,35 @@ public class TipoVtaDAO {
 
 	// Metodos para el control de los elementos de la tabla TipoVta
 
-	public TipoVta daTipoVentaById(String id) {
+	public TipoVta daTipoVentaById(String idTipoVenta) {
+		
 		sesion = sessionFactory.openSession();
+		
+		TipoVta tipoVenta = null;
+		System.out.println("***********************************");
+		System.out.println("***********************************");
+		 System.out.println("Id de tipo de venta a buscar: ["+idTipoVenta+"]");
+		 System.out.println("***********************************");
+		 System.out.println("***********************************");
 		Query query = sesion.getNamedQuery("TipoVenta.findById");
-		query.setParameter("idTipoVenta", id);
-		TipoVta tipoVenta = (TipoVta) query.uniqueResult();
-		sesion.close();
+		query.setParameter("idTipoVenta", idTipoVenta);
+		
+		if(!(query.list().isEmpty())){
+			tipoVenta = (TipoVta) query.list().get(0);
+			System.out.println("Aqui estan los valores de la clase de Tipo Venta");
+		    System.out.println(tipoVenta.toString());
+		}
+		
+		sesion.close();		
 		return tipoVenta;
+	}
+	
+	//Se retornan un lista con todos los TipoVta
+	public List<TipoVta> daTipoVta() {
+		sesion = sessionFactory.openSession();
+		Query query = sesion.getNamedQuery("TipoVenta.findAll");
+		List<TipoVta> tipoVta = query.list();
+		sesion.close();
+		return tipoVta;
 	}
 }

@@ -2,12 +2,16 @@ package sv.edu.ues.igf115.grupo11.dominio;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -15,8 +19,12 @@ import javax.persistence.TemporalType;
 //Anotaciones
 @Entity
 @Table(name = "tipovta", catalog = "grupo11", schema = "")
-@NamedQueries({ @NamedQuery(name = "TipoVenta.findById", query = "SELECT tv FROM TipoVta tv WHERE tv.idTipoVenta = :idTipoVenta") })
+@NamedQueries({ 
+	@NamedQuery(name = "TipoVenta.findAll", query = "SELECT t FROM TipoVta t"),
+	@NamedQuery(name = "TipoVenta.findById", query = "SELECT t FROM TipoVta t WHERE t.idTipoVenta = :idTipoVenta")})
+
 public class TipoVta implements Serializable {
+	
 	private static final long serialVersionUID = 1L;
 	
 	// Atributos de la clase
@@ -25,16 +33,18 @@ public class TipoVta implements Serializable {
 	@Basic(optional = false)
 	@Column(name = "id_TipoVta")
 	private String idTipoVenta;
+	
 	@Basic(optional = false)
 	@Column(name = "desc_TipoVta")
 	private String descTipoVenta;
+	
 	@Basic(optional = false)
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	@Column(name = "fecha_ing")
 	private Date fechaIngreso;
-
+	
 	// Constructor utilizado por hibernate
-	private TipoVta() {
+	public TipoVta() {
 
 	}
 
@@ -70,5 +80,12 @@ public class TipoVta implements Serializable {
 	public void setFechaIngreso(Date fechaIngreso) {
 		this.fechaIngreso = fechaIngreso;
 	}
+
+	@Override
+	public String toString() {
+		return "TipoVta [idTipoVenta=" + idTipoVenta + ", descTipoVenta="
+				+ descTipoVenta + ", fechaIngreso=" + fechaIngreso + "]";
+	}
+	
 	
 }
