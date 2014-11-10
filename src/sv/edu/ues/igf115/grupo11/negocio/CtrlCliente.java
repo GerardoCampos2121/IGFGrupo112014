@@ -50,6 +50,7 @@ public class CtrlCliente {
 		}
 		
 	}
+	
 	public boolean ModificarCliente(String idCliente, String nombCliente,
 			String apCliente, String domCliente, String telCliente,
 			String e_mail, TipoCliente tipocliente){
@@ -70,6 +71,8 @@ public class CtrlCliente {
 		}
 		return false;		
 	}
+	
+	
 	
 
 }
